@@ -21,14 +21,23 @@
   "dependencies": {
     "parcel-bundler": "^1.12.4",
     "vue": "^2.6.12",
+    "vue-hot-reload-api": "^2.3.4",
     "vuex": "^3.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
+    "@vue/component-compiler-utils": "^3.2.0",
     "autoprefixer": "^9.8.6",
     "eslint": "^7.18.0",
     "eslint-plugin-vue": "^7.5.0",
-    "postcss": "^8.2.4"
-  }
+    "parcel-bundler": "^1.12.4",
+    "postcss": "^8.2.4",
+    "sass": "^1.32.5",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
