@@ -4,11 +4,13 @@
 
 Vue로 만들어보는 11번가 메인 페이지
 
-<p align=center>
-    Inspired by <a href="https://github.com/KoEonYack" target="_blank">Covenant Ko</a>
-</p>
-
 </div>
+
+## 🌿 Branch 
+
+- `main`: 배포 코드를 관리하는 브랜치입니다.
+- `dev`: 테스트 및 개별 기능 구현이 완료된 코드를 관리하는 브랜치입니다.
+- `feature/xxx`: xxx기능을 위한 코드를 관리하는 브랜치입니다.
 
 ## 🌐 API
 
@@ -53,6 +55,7 @@ Vue로 만들어보는 11번가 메인 페이지
 | ------------------------------------ | ------------------------------------------------------------------------- |
 | [Git](https://git-scm.com/)          | We follow the [GitHub Flow](https://guides.github.com/introduction/flow/) |
 | [Node.js](nodejs.org)                | 10.10 LTS or above                                                        |
+| [Npm](https://www.npmjs.com/)        | Recommend [stable version](https://github.com/npm/cli)                    |
 
 ### Npm CILs
 
