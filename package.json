@@ -1,0 +1,25 @@
+{
+  "name": "11st-main-clone-vue",
+  "version": "1.0.0",
+  "description": "<div align=center>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoEonYack/11st-main-clone-vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KoEonYack/11st-main-clone-vue/issues"
+  },
+  "homepage": "https://github.com/KoEonYack/11st-main-clone-vue#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "vue": "^2.6.12"
+  }
+}
