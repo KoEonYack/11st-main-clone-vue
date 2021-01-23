@@ -20,6 +20,15 @@
   "homepage": "https://github.com/KoEonYack/11st-main-clone-vue#readme",
   "dependencies": {
     "parcel-bundler": "^1.12.4",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vuex": "^3.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
+    "autoprefixer": "^9.8.6",
+    "eslint": "^7.18.0",
+    "eslint-plugin-vue": "^7.5.0",
+    "postcss": "^8.2.4"
   }
 }
