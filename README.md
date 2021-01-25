@@ -14,7 +14,31 @@ Vue로 만들어보는 11번가 메인 페이지
 
 ## 🌐 API
 
-- TBA
+Method | URL | Response
+--|--|--
+GET | https://trusting-williams-8cacfb.netlify.app/.netlify/functions/main | JSON
+GET | https://trusting-williams-8cacfb.netlify.app/.netlify/functions/search | String
+
+> 예제 진행을 위해 검색 요청은 약 2초 뒤에 응답됩니다! 
+
+### Parameters
+
+Parameter | Type | URL | Required | Description
+--|--|--|--|--
+apiKey | String | - | Y | 인증 키
+requestName | String | main | Y | 요청할 데이터 이름
+searchText | String | search | Y | 검색어
+
+### Request names
+
+Name | Description
+--|--
+navDrawers | 네비게이션 메뉴 목록 
+rankings | 실시간 쇼핑 검색어 목록 (1~20위)
+billboards | 빌보드 슬라이드(Swiper) 제품 목록 (12개)
+directs | 바로가기 메뉴 목록 (쇼킹딜~사업자전용몰) 
+banner | 전역 우하단 고정 배너 내용
+hotFocus | 시선집중 할인 제품 목록 (6개)
 
 ## 🚩 Features
 
@@ -76,7 +100,7 @@ $ npm run build
 
 ## Reference
 
-- TBA
+- [Vue.js Official DOC. 플러그인 사용하기](https://kr.vuejs.org/v2/guide/plugins.html)
 
 ## License
 
