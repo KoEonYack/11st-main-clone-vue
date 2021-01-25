@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
     data() {
         return {
@@ -39,11 +37,12 @@ export default {
         },
         async search () { // 비동기동작
           if (!this.searchText.trim()) return
-          const res = this.$search()
+
+          const res = await this.$search({
+            searchText: this.searchText
+          })
           console.log(res)
-          // const res = await axios.get(`https://trusting-williams-8cacfb.netlify.app/.netlify/functions/search?apiKey=${1216}&searchText=${this.searchText}`)
-          // console.log(res)
-          // location = res.data
+          // location = res
         }
     }
 }
@@ -101,6 +100,9 @@ export default {
           font-size: 18px;
           outline: none; // input요소에 파란선을 만드는 요인
           font-family: 'Noto Sans KR', sans-serif;
+          &::placeholder { // 사용자에게 이런것을 입력하라는 힌트 글자 스타일 
+            color: #bbb; // 약회색으로
+          }
         }
         // & ==> .search
         // .search__icon
