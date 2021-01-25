@@ -39,8 +39,11 @@ export default {
         },
         async search () { // 비동기동작
           if (!this.searchText.trim()) return
-          const res = await axios.get(`https://trusting-williams-8cacfb.netlify.app/.netlify/functions/search?apiKey=${1216}&searchText=${this.searchText}`)
+          const res = this.$search()
           console.log(res)
+          // const res = await axios.get(`https://trusting-williams-8cacfb.netlify.app/.netlify/functions/search?apiKey=${1216}&searchText=${this.searchText}`)
+          // console.log(res)
+          // location = res.data
         }
     }
 }
