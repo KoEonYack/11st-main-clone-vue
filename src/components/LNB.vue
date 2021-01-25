@@ -119,12 +119,73 @@ export default {
       }
     }
     .container {
+      // Common Group CSS
       .group {
         &__title { // .group__title 
-
+          padding: 14px 25px;
+          font-size: 17px;
+          font-weight: 700;
         }
         &__list { // .group__list
-
+          li {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+      // Each Group CSS
+      .group {
+        &.categories {
+          .group__list {
+            > li {
+              height: 50px;
+              padding: 0 25px;
+              .category-icon {
+                width: 24px;
+                height: 24px;
+                margin-right: 4px;
+                background-image: url("https://trusting-williams-8cacfb.netlify.app/images/categories_2x.png");
+                background-size: 48px; // Origin 96px - 2x 이미지이기에
+              }
+              @for $i from 0 to 12 {
+                &:nth-child(#{$i}) { // &는 li선택자를 지칭
+                  .category-icon {
+                    background-position: 0 -#{$i * 24}px; // y축 조정
+                  }
+                }
+              }
+              // TODO: 클래스 선택자로 수정해야 함!
+              &:hover {
+                background-color: #ff5534;
+                color: #fff;
+                @for $i from 0 through 12 {
+                  &:nth-child(#{$i}) { // &는 li선택자를 지칭
+                    .category-icon {
+                      background-position: -24px -#{$i * 24}px; // y축 조정
+                    }
+                  }
+                }
+                .depth {
+                  display: block;
+                }
+              } // end
+              .depth {
+                display: none;
+                width: 200px;
+                height: 100%;
+                border-left: 1px solid #eee;
+                padding: 20px 0;
+                box-sizing: border-box;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 300px; // 네비게이션의 가로 너비 300px 지점 띄움
+                background-color: #fff;
+                overflow-y: auto;
+                font-size: 15px;
+              }
+            }
+          }
         }
       }
     }
