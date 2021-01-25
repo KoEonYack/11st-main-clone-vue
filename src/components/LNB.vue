@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     offNav () {
-      this.$stroe.dispatch('navigation/offNav')
+      this.$store.dispatch('navigation/offNav')
     }
   }
 }
