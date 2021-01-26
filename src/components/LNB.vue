@@ -12,6 +12,7 @@
       </div>
       <!-- [container] 카테고리 ~ 브랜드몰까지 스크롤이 동작하는 영역 --> 
       <div
+        ref="container"
         class="container"
         @mouseleave="categoryHover = -1">
         <!-- [Group] 카테고리, 파트너스, 브랜드몰 각각의 단위들 --> 
@@ -58,12 +59,19 @@
         </div>
 
         <!-- Group --> 
-        <div class="group outlets">
-          <div class="group__title">
-            {{ navigations.outlets.title }}  
+        <div 
+          ref="outlets"
+          class="group outlets">
+          <div
+            class="group__title"
+            @click="toggleGroup('outlets')">
+            {{ navigations.outlets.title }}
+            <div class="toggle-list"></div>
           </div> 
-
-          <ul class="group__list">
+          <ul
+            v-show="isShowOutlets"
+            v-cloak
+            class="group__list">
             <li
               v-for="item in navigations.outlets.list"
               :key="item.name">
@@ -77,8 +85,6 @@
           </ul>
         </div>
       </div>
-
-
 
       <!--Exhibitions Banner-->
       <div class="exhibitions">
@@ -99,6 +105,8 @@
 </template>
 
 <script>
+import _upperFirst from 'lodash/upperFirst'
+
 export default {
   data () { // 반응성위해서 데이터 초기화
     return {
@@ -129,8 +137,20 @@ export default {
     offNav () {
       this.$store.dispatch('navigation/offNav')
     },
-    toggleGroup() {
-
+    toggleGroup (name) {
+      // outlets => Outlets
+      const pascalCaseName = _upperFirst(name)
+      
+      // this[name1], this.$data.[name1] 같은 표현
+      this.$data[`isShow${pascalCaseName}`] = !this.$data[`isShow${pascalCaseName}`] // eg. this.$data['isShowOutlets']
+      if (this.$data[`isShow${pascalCaseName}`]) {
+        // 반응성이 나타난 후 콜백 실행!
+        // 데이터가 바뀐 다음 화면이 바뀌게 함 
+        this.$nextTick(() => {
+          // 컨테이너 상단위치 = 요소 상단위치
+          this.$refs.container.scrollTop = this.$refs[name].offsetTop - 100 // -100, 제목 조절
+        })
+      }
     }
   }
 }
@@ -192,6 +212,29 @@ export default {
           padding: 14px 25px;
           font-size: 17px;
           font-weight: 700;
+          position: relative;
+
+          .toggle-list {
+            position: absolute; // 상위 위치상의 부모요소 relative를 찝어주어야 한다.
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &::after {
+              content: "";
+              display: block;
+              width: 7px;
+              height: 7px;
+              margin-top: -3px;
+              border: solid #333;
+              border-width: 0 1px 1px 0; // ㄴ y축 회전 모습
+              box-sizing: border-box;
+              transform: rotate(45deg); // 45도 돌림
+            }
+          }
         }
         &__list { // .group__list
           li {
