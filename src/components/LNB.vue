@@ -11,7 +11,9 @@
           @click="offNav"></div>
       </div>
       <!-- [container] 카테고리 ~ 브랜드몰까지 스크롤이 동작하는 영역 --> 
-      <div class="container">
+      <div
+        class="container"
+        @mouseleave="categoryHover = -1">
         <!-- [Group] 카테고리, 파트너스, 브랜드몰 각각의 단위들 --> 
         <div class="group categories">
           <h3 class="group__title">
@@ -20,7 +22,9 @@
           <ul class="group__list">
             <li
               v-for="(item1, index) in navigations.categories.list"
-              :key="item1.name">
+              :key="item1.name"
+              :class="{ hover: categoryHover === index }"
+              @mouseenter="categoryHover = index">
               <div class="category-icon"></div>
               {{ item1.name }}
               <ul class="depth">
@@ -34,7 +38,17 @@
               </ul>
             </li>
           </ul>
-        </div> 
+        </div>
+      </div>
+      <div>
+      </div>
+      <!--Exhibitions Banner-->
+      <div class="exhibitions">
+        <a :href="navigations.exhibitions.href">
+          <img
+            :src="navigations.exhibitions.src"
+            :alt="navigations.exhibitions.name" />
+        </a>
       </div>
     </nav>
 
@@ -51,7 +65,8 @@ export default {
   data () { // 반응성위해서 데이터 초기화
     return {
       navigation: {},
-      done: false
+      done: false,
+      categoryHover: -1
     }
   },
   computed: {
@@ -118,9 +133,17 @@ export default {
         cursor: pointer;
       }
     }
-    .container {
+    .container { // 
+      // 광고 이전까지 영역 스크롤바
+      height: calc(100% - 70px - 94px); // nav-tag height - {로그인영역 + 배너영역}
+      overflow-y: auto;
+      padding: 10px 0;
+      box-sizing: border-box;
+
       // Common Group CSS
       .group {
+        background-color: #fff;
+        margin-bottom: 10px;
         &__title { // .group__title 
           padding: 14px 25px;
           font-size: 17px;
@@ -147,21 +170,21 @@ export default {
                 background-image: url("https://trusting-williams-8cacfb.netlify.app/images/categories_2x.png");
                 background-size: 48px; // Origin 96px - 2x 이미지이기에
               }
-              @for $i from 0 to 12 {
+              @for $i from 1 through 13 {
                 &:nth-child(#{$i}) { // &는 li선택자를 지칭
                   .category-icon {
-                    background-position: 0 -#{$i * 24}px; // y축 조정
+                    background-position: 0 -#{($i - 1) * 24}px; // y축 조정
                   }
                 }
               }
               // TODO: 클래스 선택자로 수정해야 함!
-              &:hover {
+              &.hover {
                 background-color: #ff5534;
                 color: #fff;
-                @for $i from 0 through 12 {
+                @for $i from 1 through 13 {
                   &:nth-child(#{$i}) { // &는 li선택자를 지칭
                     .category-icon {
-                      background-position: -24px -#{$i * 24}px; // y축 조정
+                      background-position: -24px -#{($i - 1) * 24}px; // y축 조정
                     }
                   }
                 }
@@ -183,9 +206,38 @@ export default {
                 background-color: #fff;
                 overflow-y: auto;
                 font-size: 15px;
+                overflow-y: auto; // 세로로 넘치는 부분만 스크롤바 생성
+                li { // depth -2 
+                  height: 40px;
+                  a {
+                    padding: 0 20px;
+                  }
+                  &:hover {
+                    background-color: #fafafa;
+                    color: #ff5534;
+                    a {
+                      color: #ff5534;
+                    }
+                  }
+                }
               }
             }
           }
+        }
+      }
+    }
+
+    .exhibitions {
+      width: 300px;
+      height: 94px;
+      a {
+        display: block;
+        width: inherit; // 300px 상속
+        height: inherit; // 94px 상속
+        cursor: pointer;
+        img {
+          width: inherit; // 300px 상속
+          height: inherit; // 94px 상속
         }
       }
     }
