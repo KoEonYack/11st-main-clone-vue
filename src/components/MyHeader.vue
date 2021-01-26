@@ -18,19 +18,63 @@
             class="search__icon"
             @click="search"></div> <!-- BEM -->
         </div>
+        <div class="ranking">
+          <!-- Slider main container -->
+          <div 
+            ref="swiper"
+            class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div
+                v-for="(rank, index) in rankings.rankings"
+                :key="rank.name"
+                class="swiper-slide">
+                <a :href="rank.href">
+                  <span class="index">{{ index + 1 }}</span>
+                  <span class="name">{{ rank.name }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   </div>
 </template>
 
 <script>
+import Swiper from 'swiper/bundle'
+import 'swiper/swiper-bundle.css'
+
 export default {
     data() {
         return {
-          searchText: ''
+          searchText: '',
+          rankings: {}
         }
     },
+    mounted () {
+      this.init()
+    },
     methods: {
+        async init () {
+          this.rankings = await this.$fetch({
+            requestName: 'rankings'
+          })
+    
+          this.$nextTick(() => {
+            // https://swiperjs.com/api/
+            new Swiper(this.$refs.swiper, {
+              direction: 'vertical',
+              speed: 1000,
+              autoplay: {
+                delay: 3000
+              },
+              loop: true
+            })
+          })
+        },
         onNav() {
             // Open LNB
             this.$store.dispatch('navigation/onNav') // navigation파일 안에 onNav를 실행한다. 
@@ -116,6 +160,33 @@ export default {
           background-image: url("https://trusting-williams-8cacfb.netlify.app/images/globals_2x.png");
           background-position: -162px -45px;
           background-size: 363px;
+        }
+      } // end search
+      .ranking {
+        width: 210px;
+        margin: 0 30px;
+        .swiper-container {
+          width: 182px;
+          height: 28px;
+          .swiper-slide {
+            a {
+              display: block;     // 링크를 잡기 위해서 블럭 요소가 되어야 한다
+              height: 28px;       // a 링크 영역을 잡는 것 
+              line-height: 28px;  // 글씨를 수직 가운데 위치
+              text-decoration: none;
+              font-size: 15px;
+              color: #333;
+              font-weight: 700;
+              span.index {
+                margin-right: 10px;
+                color: #f43142;
+                font-style: italic;
+              }
+              &:hover span.name {
+                color: #f43142;
+              }
+            }
+          }
         }
       }
     }
