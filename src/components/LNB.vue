@@ -39,9 +39,47 @@
             </li>
           </ul>
         </div>
+
+        <div class="group major-services">
+          <div>
+            <div class="group__title">
+              {{ navigations.majorServices.title }}
+            </div>
+          </div>
+          <ul class="group__list">
+            <li 
+              v-for="item in navigations.majorServices.list"
+              :key="item.name">
+              <a :href="item.href">
+                {{ item.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Group --> 
+        <div class="group outlets">
+          <div class="group__title">
+            {{ navigations.outlets.title }}  
+          </div> 
+
+          <ul class="group__list">
+            <li
+              v-for="item in navigations.outlets.list"
+              :key="item.name">
+              <a :href="item.href">
+                <img
+                  :src="item.src"
+                  :alt="item.name"
+                  width="250" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-      </div>
+
+
+
       <!--Exhibitions Banner-->
       <div class="exhibitions">
         <a :href="navigations.exhibitions.href">
@@ -66,7 +104,10 @@ export default {
     return {
       navigation: {},
       done: false,
-      categoryHover: -1
+      categoryHover: -1,
+      isShowOutlets: false,
+      isShowPartners: false,
+      isShowBrandMall: false,
     }
   },
   computed: {
@@ -87,6 +128,9 @@ export default {
     },
     offNav () {
       this.$store.dispatch('navigation/offNav')
+    },
+    toggleGroup() {
+
     }
   }
 }
@@ -221,6 +265,40 @@ export default {
                   }
                 }
               }
+            }
+          }
+        }
+        &.major-services {
+          .group__list {
+            display: flex;   // 수평정렬
+            flex-wrap: wrap; // 줄바꿈이 되는 형태
+            li {
+              width: 50%;
+              height: 50px;
+              a {
+                padding-left: 25px;
+              }
+              &:hover {
+                background-color: #fafafa;
+                color: #ff5534;
+                a {
+                  color: #ff5534;
+                }
+              }
+            }
+          }
+        } // end major services
+
+        &.outlets {
+          .group__title {
+            cursor: pointer;
+          }
+          .group__list {
+            padding-bottom: 25px;
+            li {
+              // height: auto; // 외부에서 영향을 주는게 없으면 빼도 된다. 
+              margin-top: 10px;
+              padding-left: 25px;
             }
           }
         }
