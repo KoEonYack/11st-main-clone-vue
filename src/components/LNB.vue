@@ -295,6 +295,15 @@ export default {
           li {
             display: flex;
             align-items: center;
+            box-sizing: border-box;
+            cursor: pointer;
+            a {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              box-sizing: border-box;
+            }
           }
         }
       }
