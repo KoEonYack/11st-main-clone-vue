@@ -104,7 +104,15 @@ export default {
     data() {
         return {
           searchText: '',
-          rankings: {}
+          rankings: {},
+          isFixed: false,
+          myMenu: [
+            { name: '나의 쿠폰', href: 'javascript:void(0)' },
+            { name: '주문/배송조회', href: 'javascript:void(0)' },
+            { name: '취소/반품/교환', href: 'javascript:void(0)' },
+            { name: '고객센터', href: 'javascript:void(0)' },
+            { name: '회원정보', href: 'javascript:void(0)' }
+          ]
         }
     },
     mounted () {
