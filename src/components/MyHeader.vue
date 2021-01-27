@@ -293,6 +293,7 @@ export default {
       .ranking {
         width: 210px;
         margin: 0 30px;
+        position: relative;
         .swiper-container {
           width: 182px;
           height: 28px;
