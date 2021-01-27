@@ -20,6 +20,7 @@
   "homepage": "https://github.com/KoEonYack/11st-main-clone-vue#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
     "numeral": "^2.0.6",
     "parcel-bundler": "^1.12.4",
     "regenerator-runtime": "^0.13.7",
