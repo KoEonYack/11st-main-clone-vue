@@ -4,7 +4,8 @@
   "description": "<div align=center>",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html",
+    "dev:parcel": "parcel index.html --port 1111",
+    "dev": "netlify dev",
     "build": "parcel build index.html"
   },
   "repository": {
@@ -20,8 +21,11 @@
   "homepage": "https://github.com/KoEonYack/11st-main-clone-vue#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
+    "numeral": "^2.0.6",
     "parcel-bundler": "^1.12.4",
     "regenerator-runtime": "^0.13.7",
+    "scroll-to": "^0.0.2",
     "swiper": "^6.4.8",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4",
@@ -35,13 +39,19 @@
     "dotenv": "^5.0.1",
     "eslint": "^7.18.0",
     "eslint-plugin-vue": "^7.5.0",
+    "netlify-cli": "^3.4.3",
     "parcel-bundler": "^1.12.4",
     "postcss": "^8.2.4",
     "sass": "^1.32.5",
     "vue-template-compiler": "^2.6.12"
   },
+  "__browserslist": "이 프로젝트가 지원하는 대상 브라우저를 지정!",
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "__staticFiles": "Parcel Bundler에서 사용될 정적(Static) 파일/폴더 경로!",
+  "staticFiles": {
+    "staticPath": "public"
+  }
 }

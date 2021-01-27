@@ -84,7 +84,62 @@
             </li>
           </ul>
         </div>
-      </div>
+
+        <div
+          ref="partners"
+          class="group partners"
+          @mouseenter="categoryHover = -1">
+          <div
+            class="group__title"
+            @click="toggleGroup('partners')">
+            {{ navigations.partners.title }}
+            <div class="toggle-list"></div>
+          </div>
+          <ul
+            v-show="isShowPartners"
+            v-cloak
+            class="group__list">
+            <li
+              v-for="item in navigations.partners.list"
+              :key="item.name">
+              <a :href="item.href">
+                <img
+                  :src="item.src"
+                  :alt="item.name"
+                  width="112" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          ref="brandMall"
+          class="group brand-mall"
+          @mouseenter="categoryHover = -1">
+          <div
+            class="group__title"
+            @click="toggleGroup('brandMall')">
+            {{ navigations.brandMall.title }}
+            <div class="toggle-list"></div>
+          </div>
+          <ul
+            v-show="isShowBrandMall"
+            v-cloak
+            class="group__list">
+            <li
+              v-for="item in navigations.brandMall.list"
+              :key="item.name">
+              <a :href="item.href">
+                <img
+                  :src="item.src"
+                  :alt="item.name"
+                  width="55" />
+                <span class="brand-name">{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </div> <!-- End Brand mall -->
+      </div> <!-- End Container --> 
 
       <!--Exhibitions Banner-->
       <div class="exhibitions">
@@ -240,6 +295,15 @@ export default {
           li {
             display: flex;
             align-items: center;
+            box-sizing: border-box;
+            cursor: pointer;
+            a {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              box-sizing: border-box;
+            }
           }
         }
       }
@@ -275,9 +339,9 @@ export default {
                     }
                   }
                 }
-                .depth {
-                  display: block;
-                }
+                // .depth {
+                //   display: block;
+                // }
               } // end
               .depth {
                 display: none;
@@ -307,6 +371,9 @@ export default {
                     }
                   }
                 }
+              }
+              &.hover .depth {
+                display: block;
               }
             }
           }
@@ -344,7 +411,52 @@ export default {
               padding-left: 25px;
             }
           }
-        }
+        } // end outlets
+
+        &.partners {
+          .group__title {
+            cursor: pointer;
+          }
+          .group__list {
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 25px;
+            li {
+              width: 50%;
+              height: 60px;
+              a {
+                justify-content: center;
+              }
+            }
+          }
+        } // end partners
+
+        &.brand-mall {
+          .group__title {
+            cursor: pointer;
+          }
+          .group__list {
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 25px;
+            li {
+              width: 33.33%;
+              height: auto;
+              margin-top: 20px;
+              &:nth-child(-n+3) {
+                margin-top: 0;
+              }
+              a {
+                justify-content: center;
+                flex-direction: column;
+                span.brand-name {
+                  font-size: 14px;
+                  color: #666;
+                }
+              }
+            }
+          }
+        } // end brand-mall
       }
     }
 

@@ -4,6 +4,8 @@
 
 Vue로 만들어보는 11번가 메인 페이지
 
+ 👉 [DEMO Page](https://flamboyant-lewin-e99fd4.netlify.app/)
+
 </div>
 
 ## 🌿 Branch 
@@ -15,13 +17,15 @@ Vue로 만들어보는 11번가 메인 페이지
    - `feature/search`: 상단 검색 버튼을 개발하였습니다. 
    - `feature/LNB`: 좌측 네비게이션을 개발하였습니다.
    - `feature/billboard`: 상단 이미지 슬라이더를 개발하였습니다.
+   - `feature/global-banner`: 우측 하단 아이콘을 개발하였습니다.
+   - `feature/data`: API에 사용되는 이미지, response JS function 및 json을 개발하였습니다. 
 
 ## 🌐 API
 
 Method | URL | Response
 --|--|--
-GET | https://trusting-williams-8cacfb.netlify.app/.netlify/functions/main | JSON
-GET | https://trusting-williams-8cacfb.netlify.app/.netlify/functions/search | String
+GET | https://flamboyant-lewin-e99fd4.netlify.app/.netlify/functions/main | JSON
+GET | https://flamboyant-lewin-e99fd4.netlify.app/.netlify/functions/search | String
 
 > 예제 진행을 위해 검색 요청은 약 2초 뒤에 응답됩니다! 
 
@@ -55,9 +59,9 @@ hotFocus | 시선집중 할인 제품 목록 (6개)
 - [x] Global Navigation을 구성하고 디테일한 동작을 제어할 수 있습니다.
 - [x] 중앙 집중식 데이터를 처리하고 네임스페이스를 관리할 수 있습니다.(Vuex)
 - [x] 다양한 종류의 슬라이드 효과를 개발할 수 있습니다.(Swiper.js)
-- [ ] 간단한 수준의 날짜 정보를 처리할 수 있습니다.(Day.js)
-- [ ] Image Sprite 방식을 이용하여 이미지 요청 횟수를 줄일 수 있습니다.
-- [ ] 페이지의 각 섹션(Section)의 내용을 Lazy Loading할 수 있습니다.(Intersection Observer)
+- [x] 간단한 수준의 날짜 정보를 처리할 수 있습니다.(Day.js)
+- [x] Image Sprite 방식을 이용하여 이미지 요청 횟수를 줄일 수 있습니다.
+- [x] 페이지의 각 섹션(Section)의 내용을 Lazy Loading할 수 있습니다.(Intersection Observer)
 
 
 ## 📚 Tech Stack
@@ -100,7 +104,7 @@ $ npm run build
 
 __Start project__
 ```
-$ npm run build
+$ npm run dev
 ```
 
 ## Reference
@@ -109,4 +113,4 @@ $ npm run build
 
 ## License
 
-[MIT](./LICENSE)
+- [MIT](./LICENSE)
