@@ -4,7 +4,8 @@
   "description": "<div align=center>",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html",
+    "dev:parcel": "parcel index.html --port 1111",
+    "dev": "netlify dev",
     "build": "parcel build index.html"
   },
   "repository": {
@@ -38,6 +39,7 @@
     "dotenv": "^5.0.1",
     "eslint": "^7.18.0",
     "eslint-plugin-vue": "^7.5.0",
+    "netlify-cli": "^3.4.3",
     "parcel-bundler": "^1.12.4",
     "postcss": "^8.2.4",
     "sass": "^1.32.5",
