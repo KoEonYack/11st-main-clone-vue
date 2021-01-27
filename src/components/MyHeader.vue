@@ -38,6 +38,31 @@
             </div>
           </div>
         </div>
+
+        <ul class="user-menu">
+          <li class="my">
+            <a href="javascript:void(0)"></a>
+            <ul class="my__menu">
+              <li
+                v-for="item in myMenu"
+                :key="item.name">
+                <a :href="item.href">
+                  {{ item.name }}
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0)"></a>
+          </li>
+          <li>
+            <a href="javascript:void(0)"></a>
+          </li>
+          <li>
+            <a
+              href="javascript:void(0)"></a>
+          </li>
+        </ul>
       </div>
     </header>
     <div
@@ -217,10 +242,68 @@ export default {
           }
         }
       }
-    }
-  }
 
-    // UTILS
+      .user-menu { // TEST
+        display: flex;
+        > li {
+          margin-right: 25px;
+          padding: 7px 0;
+          position: relative;
+          &:last-child {
+            margin-right: 0;
+          }
+          > a {
+            display: block;
+            width: 48px;
+            height: 48px;
+            background-image: url("https://trusting-williams-8cacfb.netlify.app/images/globals_2x.png");
+            background-size: 363px;
+          }
+          &:nth-child(1) > a { background-position: -106px -145px; }
+          &:nth-child(2) > a { background-position: 0px -198px; }
+          &:nth-child(3) > a { background-position: -53px -198px; }
+          &:nth-child(4) > a { background-position: -94px -70px; }
+          &:nth-child(1) > a:hover { background-position: -53px -145px; }
+          &:nth-child(2) > a:hover { background-position: -159px -145px; }
+          &:nth-child(3) > a:hover { background-position: 0px -145px; }
+          &:nth-child(4) > a:hover { background-position: -106px -198px; }
+          &.my {
+            &:hover {
+              .my__menu {
+                display: block;
+              }
+            }
+            .my__menu {
+              display: none;
+              width: 170px;
+              padding: 15px 0;
+              position: absolute;
+              top: 60px;
+              left: 0;
+              z-index: 2;
+              border: 1px solid #eee;
+              border-radius: 6px;
+              box-sizing: border-box;
+              box-shadow: 0 6px 24px -8px rgba(#000,.12);
+              background-color: #fff;
+              li {
+                a {
+                  display: block;
+                  padding: 7px 10px 7px 25px;
+                  font-size: 15px;
+                  &:hover {
+                    color: #f43142;
+                    background: #fafafa;
+                  }
+                }
+              }
+            }
+          }
+        }
+      } // end user-nemu
+    } // end inner
+  } // end header
+  
   .utils {
     border-top: 1px solid #f1f1f1;
     &.fixed {
