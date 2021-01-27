@@ -1,0 +1,125 @@
+{
+  "referenceDate": "Fri Jan 01 2021 20:00:00 GMT+0900 (대한민국 표준시)",
+  "rankings": [
+    {
+      "name": "겨울패딩",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "up"
+    },
+    {
+      "name": "독도새우",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "down"
+    },
+    {
+      "name": "질바이 질스튜어트 패딩",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    },
+    {
+      "name": "코끼리청소기",
+      "relativeName": "흡입력 좋은 무선청소기",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    },
+    {
+      "name": "겨울신발",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    },
+    {
+      "name": "아리울떡",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    },
+    {
+      "name": "삼성 비스포크 냉장고",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    },
+    {
+      "name": "소고기",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "up"
+    },
+    {
+      "name": "딸기",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "up"
+    },
+    {
+      "name": "다이슨 옴니 글라이드",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "up"
+    },
+    {
+      "name": "대게",
+      "relativeName": "담백한 맛",
+      "href": "javascript:void(0)",
+      "status": "up"
+    },
+    {
+      "name": "통영굴",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "down"
+    },
+    {
+      "name": "고스트겔",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "down"
+    },
+    {
+      "name": "겨울이불",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    },
+    {
+      "name": "닌텐도 스위치 라이트",
+      "relativeName": "휴대용 게임기",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    },
+    {
+      "name": "이니스프리",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "down"
+    },
+    {
+      "name": "포스트바이오틱스",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "down"
+    },
+    {
+      "name": "F873SS31H",
+      "relativeName": "LG 전자 디오스",
+      "href": "javascript:void(0)",
+      "status": "up"
+    },
+    {
+      "name": "굴",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "down"
+    },
+    {
+      "name": "커피",
+      "relativeName": "",
+      "href": "javascript:void(0)",
+      "status": "stay"
+    }
+  ]
+}
