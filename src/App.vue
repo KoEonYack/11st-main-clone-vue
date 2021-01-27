@@ -3,6 +3,7 @@
     <l-n-b></l-n-b>
     <my-header></my-header>
     <billboard></billboard>
+    <direct></direct>
     <global-banner></global-banner>
   </div>
 </template>
@@ -11,6 +12,7 @@
 import LNB from '~/src/components/LNB'
 import MyHeader from '~/src/components/MyHeader'
 import Billboard from '~/src/components/Billboard'
+import Direct from '~/src/components/Direct'
 import GlobalBanner from '~/src/components/GlobalBanner'
 
 export default {
@@ -18,6 +20,7 @@ export default {
     LNB,
     MyHeader,
     Billboard,
+    Direct,
     GlobalBanner
   }
 }
