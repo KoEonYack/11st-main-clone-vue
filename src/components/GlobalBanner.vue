@@ -60,7 +60,7 @@ export default {
     toTop () {
       scrollTo(0, 0, {
         duration: 800
-      });
+      })
     }
   }
 }

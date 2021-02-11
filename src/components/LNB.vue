@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav 
+    <nav
       v-if="done"
       :class="{ show: isShowLNB }">
       <div class="user">
@@ -10,12 +10,12 @@
           class="close-nav"
           @click="offNav"></div>
       </div>
-      <!-- [container] 카테고리 ~ 브랜드몰까지 스크롤이 동작하는 영역 --> 
+      <!-- [container] 카테고리 ~ 브랜드몰까지 스크롤이 동작하는 영역 -->
       <div
         ref="container"
         class="container"
         @mouseleave="categoryHover = -1">
-        <!-- [Group] 카테고리, 파트너스, 브랜드몰 각각의 단위들 --> 
+        <!-- [Group] 카테고리, 파트너스, 브랜드몰 각각의 단위들 -->
         <div class="group categories">
           <h3 class="group__title">
             {{ navigations.categories.title }}
@@ -41,14 +41,14 @@
           </ul>
         </div>
 
-        <div class="group major-services">
-          <div>
-            <div class="group__title">
-              {{ navigations.majorServices.title }}
-            </div>
+        <div
+          class="group major-services"
+          @mouseenter="categoryHover = -1">
+          <div class="group__title">
+            {{ navigations.majorServices.title }}
           </div>
           <ul class="group__list">
-            <li 
+            <li
               v-for="item in navigations.majorServices.list"
               :key="item.name">
               <a :href="item.href">
@@ -58,16 +58,17 @@
           </ul>
         </div>
 
-        <!-- Group --> 
-        <div 
+        <!-- Group -->
+        <div
           ref="outlets"
-          class="group outlets">
+          class="group outlets"
+          @mouseenter="categoryHover = -1">
           <div
             class="group__title"
             @click="toggleGroup('outlets')">
             {{ navigations.outlets.title }}
             <div class="toggle-list"></div>
-          </div> 
+          </div>
           <ul
             v-show="isShowOutlets"
             v-cloak
@@ -139,7 +140,7 @@
             </li>
           </ul>
         </div> <!-- End Brand mall -->
-      </div> <!-- End Container --> 
+      </div> <!-- End Container -->
 
       <!--Exhibitions Banner-->
       <div class="exhibitions">
@@ -195,12 +196,12 @@ export default {
     toggleGroup (name) {
       // outlets => Outlets
       const pascalCaseName = _upperFirst(name)
-      
+
       // this[name1], this.$data.[name1] 같은 표현
       this.$data[`isShow${pascalCaseName}`] = !this.$data[`isShow${pascalCaseName}`] // eg. this.$data['isShowOutlets']
       if (this.$data[`isShow${pascalCaseName}`]) {
         // 반응성이 나타난 후 콜백 실행!
-        // 데이터가 바뀐 다음 화면이 바뀌게 함 
+        // 데이터가 바뀐 다음 화면이 바뀌게 함
         this.$nextTick(() => {
           // 컨테이너 상단위치 = 요소 상단위치
           this.$refs.container.scrollTop = this.$refs[name].offsetTop - 100 // -100, 제목 조절
@@ -230,12 +231,12 @@ export default {
       height: 70px;
       padding: 0 25px;
       background-color: #fff;
-      display: flex; // x버튼과 수평을 만들기 위해서 
+      display: flex; // x버튼과 수평을 만들기 위해서
       align-items: center;
       a {
         font-size: 20px;
         font-weight: 700;
-        text-decoration: none; // 텍스트 밑줄 사용하지 않는다. 
+        text-decoration: none; // 텍스트 밑줄 사용하지 않는다.
         &:hover {
           text-decoration: underline;
         }
@@ -252,7 +253,7 @@ export default {
         cursor: pointer;
       }
     }
-    .container { // 
+    .container { //
       // 광고 이전까지 영역 스크롤바
       height: calc(100% - 70px - 94px); // nav-tag height - {로그인영역 + 배너영역}
       overflow-y: auto;
@@ -263,7 +264,7 @@ export default {
       .group {
         background-color: #fff;
         margin-bottom: 10px;
-        &__title { // .group__title 
+        &__title { // .group__title
           padding: 14px 25px;
           font-size: 17px;
           font-weight: 700;
@@ -358,7 +359,7 @@ export default {
                 overflow-y: auto;
                 font-size: 15px;
                 overflow-y: auto; // 세로로 넘치는 부분만 스크롤바 생성
-                li { // depth -2 
+                li { // depth -2
                   height: 40px;
                   a {
                     padding: 0 20px;
@@ -406,7 +407,7 @@ export default {
           .group__list {
             padding-bottom: 25px;
             li {
-              // height: auto; // 외부에서 영향을 주는게 없으면 빼도 된다. 
+              // height: auto; // 외부에서 영향을 주는게 없으면 빼도 된다.
               margin-top: 10px;
               padding-left: 25px;
             }
